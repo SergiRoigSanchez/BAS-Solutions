@@ -1,53 +1,65 @@
-from tkinter import *
+import tasca1_shodan, tasca2_harvester, tasca3_osint, tasca4_escaneig, tasca5_ssh, tasca6_enumeracio, tasca_telegram
 
-root = Tk()
-root.title('Title')
-# root.iconbitmap('c:/gui/codemy.ico')
-root.geometry ("400x400")
+def mostrar_menu():
+    print("\nAplicació d'auditoria de BAS Solutions")
+    print("1 - Consulta API Shodan")
+    print("2 - The Harvester")
+    print("3 - OSINT")
+    print("4 - Escaneig")
+    print("5 - Auditoria SSH")
+    print("6 - Ennumeració")
 
-my_menu = Menu (root)
-root.config(menu=my_menu)
+def opcio1():
+    print("\nConsulta API Shodan")
+    resposta = tasca1_shodan.obtenir_informacio_host()
+    print(resposta)
+    # tasca_telegram.enviarMensaje(resposta)
+    
+def opcio2():
+    print("\nThe Harvester")
+    tasca2_harvester.recopilar_informacio_domini()
 
-# Click command 
-def test_command():
-    my_label = Label(root, text="Prova").pack()
+def opcio3():
+    print("\nOSINT")
+    # tasca3_osint.tasca3_osint.
 
-# Funció File new
-def file_new():
-    hide_all_frames()
-    file_new_frame.pack(fill="both", expand=1)
-    my_label = Label(file_new_frame, text="Has clicat el menú File >> New").pack()
+def opcio4():
+    print("\nEscaneig")
+    tasca4_escaneig.escaneig_nmap()
 
-# Funció Edit cut
-def edit_cut():
-    hide_all_frames()
-    edit_cut_frame.pack(fill="both", expand=1)
-    my_label = Label(edit_cut_frame, text="Has clicat el menú Edit >> Cut").pack()
+def opcio5():
+    print("\nAuditoria SSH")
+    tasca5_ssh.auditar_ssh()
 
-# Amaga tots els frames
-def hide_all_frames():
-    file_new_frame.pack_forget()
-    edit_cut_frame.pack_forget()
+def opcio6():
+    print("\nEnnumeració")
+    tasca6_enumeracio.enumerar_host()
+    
+while True:
+    mostrar_menu()
+    entrada = input("Elige una opción (1-6) o 'q' para salir: ")
+    
+    if entrada == 'q':
+        break
 
-# Objectes de menú
-file_menu = Menu (my_menu)
-my_menu.add_cascade(label="File", menu=file_menu) 
-file_menu.add_command(label="New...", command=file_new)
-file_menu.add_separator()
-file_menu.add_command(label="Exit", command=root.quit)
+    try:
+        opcion = int(entrada)
+        if opcion == 1:
+            opcio1()
+        elif opcion == 2:
+            opcio2()
+        elif opcion == 3:
+            opcio3()
+        elif opcion == 4:
+            opcio4()
+        elif opcion == 5:
+            opcio5()
+        elif opcion == 6:
+            opcio6()
+        else:
+            print("Opció invàlida. Per favor, tria un número de l'1 al 6.")
 
-edit_menu = Menu (my_menu)
-my_menu.add_cascade(label="Edit", menu=edit_menu)
-edit_menu.add_command(label="Cut", command=edit_cut)
-edit_menu.add_command(label="Copy", command=test_command)
+        input("Presiona Enter per tornar al menú principal")
 
-option_menu = Menu (my_menu)
-my_menu.add_cascade(label="Options", menu=option_menu)
-option_menu.add_command(label="Find", command=test_command)
-option_menu.add_command(label="Find next", command=test_command)
-
-# Frames
-file_new_frame = Frame(root, width=400, height=400, bg="red")
-edit_cut_frame = Frame(root, width=400, height=400, bg="blue")
-
-root.mainloop()
+    except ValueError:
+        print("Entrada invàlida. Per favor, introdueix un número de l'1 al 6 o 'q' per sortir.")
