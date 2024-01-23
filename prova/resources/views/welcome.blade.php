@@ -19,9 +19,6 @@
         <!-- Hero Section -->
         @include('components.hero')
 
-        <!-- Header Section -->
-        @include('components.header')
-
         <!-- Pricing Section -->
         @include('components.pricing')
 

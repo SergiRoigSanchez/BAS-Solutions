@@ -11,9 +11,7 @@ def mostrar_menu():
 
 def opcio1():
     print("\nConsulta API Shodan")
-    resposta = tasca1_shodan.obtenir_informacio_host()
-    print(resposta)
-    # tasca_telegram.enviarMensaje(resposta)
+    tasca1_shodan.obtenir_informacio_host()
     
 def opcio2():
     print("\nThe Harvester")

@@ -3,10 +3,10 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 <div class="max-w-xl lg:max-w-lg">
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
-                    <p class="mt-4 text-lg leading-8 text-white">Nostrud amet eu ullamco nisi aute in ad minim nostrud adipisicing velit quis. Duis tempor incididunt dolore.</p>
+                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscriu-te al nostre butlletí.</h2>
+                    <p class="mt-4 text-lg leading-8 text-white">Subscriu-te per està atent/a a les novetats i notícies de BAS-Solutions</p>
                     <div class="mt-6 flex max-w-md gap-x-4">
-                        <label for="email-address" class="sr-only">Email address</label>
+                        <label for="email-address" class="sr-only">Correu electrònic</label>
                         <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Enter your email">
                         <button type="submit" class="flex-none rounded-md bg-[#041424] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#1d2c3a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Subscribe</button>
                     </div>
@@ -18,8 +18,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
                             </svg>
                         </div>
-                        <dt class="mt-4 font-semibold text-white">Weekly articles</dt>
-                        <dd class="mt-2 leading-7 text-white">Non laboris consequat cupidatat laborum magna. Eiusmod non irure cupidatat duis commodo amet.</dd>
+                        <dt class="mt-4 font-semibold text-white">Articles semtanals</dt>
+                        <dd class="mt-2 leading-7 text-white">Subscriu-te per estar informat dels nostres articles setmanals. No ten perdis cap.</dd>
                     </div>
                     <div class="flex flex-col items-start">
                         <div class="rounded-md bg-white/5 p-2 ring-1 ring-white">
@@ -28,7 +28,7 @@
                             </svg>
                         </div>
                         <dt class="mt-4 font-semibold text-white">No spam</dt>
-                        <dd class="mt-2 leading-7 text-white">Officia excepteur ullamco ut sint duis proident non adipisicing. Voluptate incididunt anim.</dd>
+                        <dd class="mt-2 leading-7 text-white">Aquí apostem per les notícies sense spam. Pots cancel·lar la teva subscripció quan vulguis sense cap compromís.</dd>
                     </div>
                 </dl>
             </div>

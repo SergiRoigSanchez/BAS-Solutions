@@ -12,9 +12,19 @@ def obtenir_informacio_host():
     # Demanar l'adreça IP
     ip_address = input("Introdueix una adreça IP: ")
 
-    obtenir_informacio_params(ip_address)
+    # Redirigir la sortida estándar a un objecte StringIO
+    output_buffer = io.StringIO()
+    
+    obtenir_informacio_host_nobuffer(ip_address)
 
-def obtenir_informacio_params(ip_address):
+    # Restablir la sortida estándar
+    sys.stdout = sys.__stdout__
+
+    # Obtenir el contingut capturat y retornar-lo com a String
+    output_text = str(output_buffer.getvalue())
+    return output_text
+
+def obtenir_informacio_grafic(ip_address):
     # Redirigir la sortida estándar a un objecte StringIO
     output_buffer = io.StringIO()
     sys.stdout = output_buffer

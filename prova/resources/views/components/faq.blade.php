@@ -2,7 +2,7 @@
     <div class="relative isolate overflow-hidden bg-cyan-900 py-16 sm:py-24 lg:py-32">
         <div class="relative z-[1] container m-auto px-6 md:px-12">
             <h4 class="text-4xl font-bold text-white tracking-widest uppercase text-center">FAQ</h4>
-            <p class="text-center text-white text-sm mt-2">Here are some of the frequently asked questions</p>
+            <p class="text-center text-white text-sm mt-2">Les preguntes més freqüents</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 px-2 xl:px-12 mt-4">
                 <div class="flex space-x-8 mt-8">
                     <div>
@@ -13,9 +13,9 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white">Lorem ipsum dolor sit amet?</h4>
-                        <p class="text-white my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                        <h4 class="text-xl font-bold text-white">Canvieu els preus?</h4>
+                        <p class="text-white my-2">La resposta és NO. Nosaltres no canviem els preus però hi ha temporades que fem descomptes del 25%.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Llegeix més</a>
                     </div>
                 </div>
 
@@ -26,9 +26,9 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white">Consectetur adipisicing elit?</h4>
-                        <p class="text-white my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
+                        <h4 class="text-xl font-bold text-white">Si no funciona el producte que faig?</h4>
+                        <p class="text-white my-2">Si teniu algun problema amb els nostres productes podeu contactar amb nosaltres a l'apartat de contacte. Et respondrem en menys de 1h. L'horari és de 9:00h a 18:00h.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Llegeix més</a>
                     </div>
                 </div>
 
@@ -39,8 +39,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white">Neque eos, dignissimos provident reiciendis debitis?</h4>
-                        <p class="text-white my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
+                        <h4 class="text-xl font-bold text-white">Puc cancel·lar la meva subscripció al butlletí?</h4>
+                        <p class="text-white my-2">Clar que sí! Nosaltres no fiquem cap inconvenient.</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
                     </div>
                 </div>
@@ -52,8 +52,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white">Repudiandae commodi perferendis et itaque?</h4>
-                        <p class="text-white my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
+                        <h4 class="text-xl font-bold text-white">Les meves dades estan segures?</h4>
+                        <p class="text-white my-2">Nosaltres no compartim les dades amb ningú i menys les venem a terceres empreses. Volem que la seguretatsigui el primer.</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
                     </div>
                 </div>
@@ -65,21 +65,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white">Similique fugiat cumque?</h4>
-                        <p class="text-white my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
-                    </div>
-                </div>
-
-                <div class="flex space-x-8 mt-8">
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold text-white">Impedit iusto vitae dolorum, nostrum fugit?</h4>
-                        <p class="text-white my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, dignissimos. Neque eos, dignissimos provident reiciendis debitis repudiandae commodi perferendis et itaque, similique fugiat cumque impedit iusto vitae dolorum. Nostrum, fugit!</p>
+                        <h4 class="text-xl font-bold text-white">Hi ha actualitzacions?</h4>
+                        <p class="text-white my-2">Clar, nosaltres sempre volem estar a la moda i actalitzem els nostres productes per a que siguin millor.</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
                     </div>
                 </div>

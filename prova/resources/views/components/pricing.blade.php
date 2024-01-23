@@ -2,15 +2,15 @@
     <div class="relative z-[1] container m-auto px-6 md:px-12">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl sm:text-center">
-                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Simple no-tricks pricing</h2>
-                <p class="mt-6 text-lg leading-8 text-white">Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in. Explicabo id ut laborum.</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Preus simples i sense cap truc</h2>
+                <p class="mt-6 text-lg leading-8 text-white">Els preus que veus per pantalla són just els que tenim, sense comissions ni pujades de preu.</p>
             </div>
             <div class="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
                 <div class="p-8 sm:p-10 lg:flex-auto">
-                    <h3 class="text-2xl font-bold tracking-tight text-white">Lifetime membership</h3>
-                    <p class="mt-6 text-base leading-7 text-white">Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis repellendus etur quidem assumenda.</p>
+                    <h3 class="text-2xl font-bold tracking-tight text-white">Membre de per vida</h3>
+                    <p class="mt-6 text-base leading-7 text-white">Un cop comprats els nostres productes podràs gaudir-los tota la vida, sí, ho has llegit bé, tota la vida sense renovacions.</p>
                     <div class="mt-10 flex items-center gap-x-4">
-                        <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600">What’s included</h4>
+                        <h4 class="flex-none text-sm font-semibold leading-6 text-indigo-600">Qué incloem</h4>
                         <div class="h-px flex-auto bg-gray-100"></div>
                     </div>
                     <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-white sm:grid-cols-2 sm:gap-6">
@@ -43,13 +43,13 @@
                 <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
                     <div class="rounded-2xl bg-[#1e1728] py-10 text-center ring-1 ring-inset ring-white/5 lg:flex lg:flex-col lg:justify-center lg:py-16">
                         <div class="mx-auto max-w-xs px-8">
-                            <p class="text-base font-semibold text-white">Pay once, own it forever</p>
+                            <p class="text-base font-semibold text-white">Paga una vegada, disfrutau de per vida</p>
                             <p class="mt-6 flex items-baseline justify-center gap-x-2">
-                                <span class="text-5xl font-bold tracking-tight text-white">$349</span>
-                                <span class="text-sm font-semibold leading-6 tracking-wide text-white">USD</span>
+                                <span class="text-5xl font-bold tracking-tight text-white">349€</span>
+                                <span class="text-sm font-semibold leading-6 tracking-wide text-white">EUROS</span>
                             </p>
                             <a href="#" class="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get access</a>
-                            <p class="mt-6 text-xs leading-5 text-white">Invoices and receipts available for easy company reimbursement</p>
+                            <p class="mt-6 text-xs leading-5 text-white">Factures i rebuts disponibles per a un fàcil reemborsament de l'empresa</p>
                         </div>
                     </div>
                 </div>

@@ -95,7 +95,7 @@ def shodan():
     def mostrar_informacion_host():
         try:
             ip_address = entrada_ip.get()
-            resultado = tasca1_shodan.obtenir_informacio_params(ip_address)
+            resultado = tasca1_shodan.obtenir_informacio_grafic(ip_address)
 
             # Convertir resultado a cadena antes de insertarlo en el widget de texto
             resultado_str = str(resultado)
