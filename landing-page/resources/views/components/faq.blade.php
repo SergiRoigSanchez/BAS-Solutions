@@ -1,8 +1,8 @@
 <div id="faq" class="p-0">
-    <div class="relative isolate overflow-hidden bg-cyan-900 py-16 sm:py-24 lg:py-32">
+    <div class="relative isolate overflow-hidden bg-cyan-900 py-40">
         <div class="relative z-[1] container m-auto px-6 md:px-12">
             <h4 class="text-4xl font-bold text-white tracking-widest uppercase text-center">FAQ</h4>
-            <p class="text-center text-white text-sm mt-2">Les preguntes més freqüents</p>
+            <p class="text-center text-white text-sm mt-2 pb-16">Les preguntes més freqüents</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 xl:gap-12 px-2 xl:px-12 mt-4">
                 <div class="flex space-x-8 mt-8">
                     <div>
@@ -14,7 +14,7 @@
                     </div>
                     <div>
                         <h4 class="text-xl font-bold text-white">Canvieu els preus?</h4>
-                        <p class="text-white my-2">La resposta és NO. Nosaltres no canviem els preus però hi ha temporades que fem descomptes del 25%.</p>
+                        <p class="text-white my-2">La resposta és NO. Nosaltres no canviem els preus però hi ha temporades que fem descomptes del 25%. Estiguis atent/a a les nostres xarxes socials!</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Llegeix més</a>
                     </div>
                 </div>
@@ -26,8 +26,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white">Si no funciona el producte que faig?</h4>
-                        <p class="text-white my-2">Si teniu algun problema amb els nostres productes podeu contactar amb nosaltres a l'apartat de contacte. Et respondrem en menys de 1h. L'horari és de 9:00h a 18:00h.</p>
+                        <h4 class="text-xl font-bold text-white">Què faig si no funciona el producte?</h4>
+                        <p class="text-white my-2">Si teniu algun problema amb els nostres productes podeu contactar el nostre servei d'atenció al client. Et respondrem en menys de 1h. L'horari és de 9:00h a 18:00h.</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Llegeix més</a>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                     </div>
                     <div>
                         <h4 class="text-xl font-bold text-white">Puc cancel·lar la meva subscripció al butlletí?</h4>
-                        <p class="text-white my-2">Clar que sí! Nosaltres no fiquem cap inconvenient.</p>
+                        <p class="text-white my-2">Clar que sí! Nosaltres no hi fiquem cap inconvenient. En cas de cancel·larl-la encara podràs gaudir dels beneficis del teu plà fins passats 30 dies de l'últim pagament.</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                     </div>
                     <div>
                         <h4 class="text-xl font-bold text-white">Les meves dades estan segures?</h4>
-                        <p class="text-white my-2">Nosaltres no compartim les dades amb ningú i menys les venem a terceres empreses. Volem que la seguretatsigui el primer.</p>
+                        <p class="text-white my-2">Nosaltres no compartim les dades dels nostres clients amb ningú i menys les venem a terceres empreses. La vostra seguretat i privacitat és el primer per nosaltres.</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-white">Hi ha actualitzacions?</h4>
-                        <p class="text-white my-2">Clar, nosaltres sempre volem estar a la moda i actalitzem els nostres productes per a que siguin millor.</p>
+                        <h4 class="text-xl font-bold text-white">Manteniu el programari actualitzat?</h4>
+                        <p class="text-white my-2">Per supost, nosaltres sempre volem estar a la moda i actualitzem els nostres productes per a que siguin millors.</p>
                         <a href="#" class="text-blue-600 hover:text-blue-800 hover:underline capitalize" title="Read More">Read More</a>
                     </div>
                 </div>

@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6194d4d0-264e-4964-bb8b-8b358bf922dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/blog.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/stats.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/contact.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/faq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/faq.blade.php" afterDir="false" />
@@ -13,7 +17,6 @@
       <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/hero.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/newsletter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/newsletter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/pricing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/pricing.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/team.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/team.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -161,24 +164,28 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2b399teQd48R6fxzRTFozLzefOB" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/alumne/Documents/py/BAS-Solutions/prova/resources/views&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/alumne/Documents/py/BAS-Solutions/landing-page/resources/views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views" />
@@ -216,10 +223,15 @@
       <workItem from="1705936860442" duration="130000" />
       <workItem from="1706031484623" duration="9212000" />
       <workItem from="1706121387073" duration="599000" />
+      <workItem from="1706122963212" duration="4695000" />
+      <workItem from="1706204194825" duration="6225000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

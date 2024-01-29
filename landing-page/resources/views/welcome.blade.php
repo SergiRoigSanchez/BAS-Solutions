@@ -20,6 +20,9 @@
         @include('components.hero')
 
         <!-- Pricing Section -->
+        @include('components.stats')
+
+        <!-- Pricing Section -->
         @include('components.pricing')
 
         <!-- Team Section -->

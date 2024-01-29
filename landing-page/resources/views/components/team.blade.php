@@ -2,7 +2,7 @@
     <div class="relative z-[1] container m-auto px-6 md:px-12">
         <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
             <div class="text-center pb-12">
-                <h1 class="text-white font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
+                <h1 class="text-4xl text-white font-bold font-heading text-gray-900">
                     Coneix el nostre equip
                 </h1>
                 <p class="mt-6 text-lg leading-8 text-white">Personal completament qualificat per a satisfer les seves necessitats.</p>

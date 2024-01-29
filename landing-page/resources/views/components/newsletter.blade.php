@@ -1,10 +1,10 @@
-<div id="butlleti" class="relative isolate overflow-hidden bg-cyan-900 py-16 sm:py-24 lg:py-32">
+<div id="butlleti" class="relative isolate overflow-hidden bg-cyan-900 py-32">
     <div class="relative z-[1] container m-auto px-6 md:px-12">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 <div class="max-w-xl lg:max-w-lg">
                     <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscriu-te al nostre butlletí.</h2>
-                    <p class="mt-4 text-lg leading-8 text-white">Subscriu-te per està atent/a a les novetats i notícies de BAS-Solutions</p>
+                    <p class="mt-4 text-lg leading-8 text-white">Et mantindrem actualitzat/da sobre les novetats i notícies de BAS-Solutions.</p>
                     <div class="mt-6 flex max-w-md gap-x-4">
                         <label for="email-address" class="sr-only">Correu electrònic</label>
                         <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-md border-0 bg-white px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Enter your email">
@@ -19,7 +19,7 @@
                             </svg>
                         </div>
                         <dt class="mt-4 font-semibold text-white">Articles semtanals</dt>
-                        <dd class="mt-2 leading-7 text-white">Subscriu-te per estar informat dels nostres articles setmanals. No ten perdis cap.</dd>
+                        <dd class="mt-2 leading-7 text-white">Estiguis informat/da dels nostres articles setmanals. No ten perdis cap!</dd>
                     </div>
                     <div class="flex flex-col items-start">
                         <div class="rounded-md bg-white/5 p-2 ring-1 ring-white">

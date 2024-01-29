@@ -1,4 +1,4 @@
-<div class="relative isolate overflow-hidden bg-cyan-900">
+<div class="relative isolate overflow-hidden bg-cyan-900 pb-7">
     <div class="relative z-[1] container m-auto px-6 md:px-12">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -20,10 +20,10 @@
                     <a href="/" class="text-sm font-semibold leading-6 text-white">Inici</a>
                     <a href="/pricing" class="text-sm font-semibold leading-6 text-white">Preus</a>
                     <a href="/blog" class="text-sm font-semibold leading-6 text-white">Blog</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">Sobre nosaltres</a>
+                    <a href="/about" class="text-sm font-semibold leading-6 text-white">Sobre nosaltres</a>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">Inicia sessió <span aria-hidden="true">&rarr;</span></a>
+                    <a href="/login" class="text-sm font-semibold leading-6 text-white">Inicia sessió <span aria-hidden="true">&rarr;</span></a>
                 </div>
             </nav>
         </header>

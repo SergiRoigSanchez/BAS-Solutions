@@ -81,7 +81,7 @@
                     </ul>
                 </div>
                 <div class="w-10/12 m-auto  mt-16 space-y-6 text-center sm:text-left sm:w-5/12 sm:mt-auto">
-                    <span class="block text-gray-300">Transformem la seguretat digital, redefinint la manera com s'aborden les auditories per construir un entorn cibernètic més resilient i protegit</span>
+                    <span class="block text-gray-300">Transformem la seguretat digital, redefinint la manera com s'aborden les auditories per construir un entorn cibernètic més resilient i protegit.</span>
 
                     <span class="block text-gray-300">BAS Solutions &copy; 2023</span>
 
@@ -90,7 +90,7 @@
                         <a href="#" class="font-semibold"> Política de privacitat</a>
                     </span>
 
-                    <span class="block text-gray-300">Necessites ajuda? <a href="#" class="font-semibold text-white"> Contacta'ns</a></span>
+                    <span class="block text-gray-300">Necessites ajuda? <a href="/#contacte" class="font-semibold text-white"> Contacta'ns</a></span>
                 </div>
             </div>
         </div>

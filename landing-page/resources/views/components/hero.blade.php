@@ -20,10 +20,10 @@
                     <a href="/" class="text-sm font-semibold leading-6 text-white">Inici</a>
                     <a href="/pricing" class="text-sm font-semibold leading-6 text-white">Preus</a>
                     <a href="/blog" class="text-sm font-semibold leading-6 text-white">Blog</a>
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">Sobre nosaltres</a>
+                    <a href="/about" class="text-sm font-semibold leading-6 text-white">Sobre nosaltres</a>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" class="text-sm font-semibold leading-6 text-white">Inicia sessió <span aria-hidden="true">&rarr;</span></a>
+                    <a href="/login" class="text-sm font-semibold leading-6 text-white">Inicia sessió <span aria-hidden="true">&rarr;</span></a>
                 </div>
             </nav>
         </header>
@@ -37,8 +37,8 @@
                     <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Auditories de Seguretat per al teu Negoci</h1>
                     <p class="mt-6 text-lg leading-8 text-white">Descobreix vulnerabilitats amb eines de primer nivell. Protegeix la teva empresa contra amenaces cibernètiques.</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Començar</a>
-                        <a href="#" class="text-sm font-semibold leading-6 text-white">Apren més <span aria-hidden="true">→</span></a>
+                        <a href="/#stats" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Començar</a>
+                        <a href="/#stats" class="text-sm font-semibold leading-6 text-white">Apren més <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
             </div>
