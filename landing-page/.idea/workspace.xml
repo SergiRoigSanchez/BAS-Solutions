@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6194d4d0-264e-4964-bb8b-8b358bf922dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/about.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/stats.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/blog.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/faq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/faq.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/hero.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/newsletter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/newsletter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/team.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/team.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +191,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-ba97393d7c68-b4dcf6bb9de9-com.jetbrains.php.sharedIndexes-PS-233.13135.108" />
+        <option value="bundled-php-predefined-ba97393d7c68-6f8e3395a2b4-com.jetbrains.php.sharedIndexes-PS-233.14015.96" />
       </set>
     </attachedChunks>
   </component>
@@ -225,6 +212,7 @@
       <workItem from="1706121387073" duration="599000" />
       <workItem from="1706122963212" duration="4695000" />
       <workItem from="1706204194825" duration="6225000" />
+      <workItem from="1707144446827" duration="760000" />
     </task>
     <servers />
   </component>
