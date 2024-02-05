@@ -4,14 +4,16 @@ import subprocess
 # com adreces de correu electrònic, subdominis, noms de hosts, noms d'usuaris i altres dades
 def recopilar_informacio_domini():
     # Demanar informació a l'usuari
-    domini = input("Introdueix el domini de destí (per exemple, bing.com): ")
-    max_resultats = input("Introdueix el número máxim de resultats (per exemple, 100): ")
-    fonts = input("Introdueix les donts de dades (per exemple exemple, bing): ")
+    print("Introdueix les seguents dades: ")
+    domini = input("Domini de destí (p.ex. bing.com): ")
+    max_resultats = input("Número máxim de resultats (p.ex. 50): ")
+    fonts = input("Fonts de dades (p.ex. bing): ")
 
     resultat = recopilar_informacio_domini_params(domini, max_resultats, fonts)
 
     # Imprimir la sortida
     print(resultat)
+    print("\033[0m")
 
 def recopilar_informacio_domini_params(domini, max_resultats, fonts):
     # Construir la comanda TheHarvester amb les opcions introduides per l'usuari
@@ -20,13 +22,13 @@ def recopilar_informacio_domini_params(domini, max_resultats, fonts):
     try:
         # Executar la comanda construida anteriorment
         resultat = subprocess.check_output(comanda, shell=True, stderr=subprocess.STDOUT, text=True)
-
+        print("\033[0m")
         return resultat
     except Exception as e:
         print("Error al executar la comanda:", comanda + "\n" + e.output)
 
 if __name__ == '__main__':
-    domini = input("Introdueix el domini de destí (per exemple, bing.com): ")
-    max_resultats = input("Introdueix el número máxim de resultats (per exemple, 100): ")
-    fonts = input("Introdueix les donts de dades (per exemple exemple, bing): ")
+    domini = input("Domini de destí (p.ex. bing.com): ")
+    max_resultats = input("Número máxim de resultats (p.ex. 50): ")
+    fonts = input("Fonts de dades (p.ex. bing): ")
     recopilar_informacio_domini_params(domini, max_resultats, fonts)

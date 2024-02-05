@@ -16,11 +16,15 @@ def enumerar_host():
         # En cas d'error, mostra un missatge d'error
         print("Error al ejecutar Enum4linux:", e)
 
-def enumerar_host_parametre(target):
+def enumerar_host_parametre(target, color = True):
     # Executa la comanda y captura la sortida a la variable output
     command = f"enum4linux -a {target}"
 
     output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT, universal_newlines=True, text=True)
+
+    if (not color):
+        # Treiem el color
+        output = re.sub(r'\x1b\[[0-9;]*[mGK]', '', output)
 
     return output
 

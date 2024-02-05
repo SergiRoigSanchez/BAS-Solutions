@@ -2,15 +2,15 @@ import tasca1_shodan, tasca2_harvester, tasca3_osint, tasca4_escaneig, tasca5_ss
 
 def mostrar_menu():
     print("\nAplicació d'auditoria de BAS Solutions")
-    print("1 - Consulta API Shodan")
+    print("1 - Shodan")
     print("2 - The Harvester")
     print("3 - OSINT")
-    print("4 - Escaneig")
-    print("5 - Auditoria SSH")
-    print("6 - Ennumeració")
+    print("4 - Nmap")
+    print("5 - SSH-Audit")
+    print("6 - Enum4linux")
 
 def opcio1():
-    print("\nConsulta API Shodan")
+    print("\nShodan")
     tasca1_shodan.obtenir_informacio_host()
     
 def opcio2():
@@ -22,20 +22,20 @@ def opcio3():
     # tasca3_osint.tasca3_osint.
 
 def opcio4():
-    print("\nEscaneig")
+    print("\nNmap")
     tasca4_escaneig.escaneig_nmap()
 
 def opcio5():
-    print("\nAuditoria SSH")
+    print("\nSSH-Audit")
     tasca5_ssh.auditar_ssh()
 
 def opcio6():
-    print("\nEnnumeració")
+    print("\nEnum4Linux")
     tasca6_enumeracio.enumerar_host()
     
 while True:
     mostrar_menu()
-    entrada = input("Elige una opción (1-6) o 'q' para salir: ")
+    entrada = input("Tria una opció (1-6) o 'q' per sortir: ")
     
     if entrada == 'q':
         break
@@ -57,7 +57,7 @@ while True:
         else:
             print("Opció invàlida. Per favor, tria un número de l'1 al 6.")
 
-        input("Presiona Enter per tornar al menú principal")
+        input("Prem Enter per tornar al menú principal")
 
     except ValueError:
         print("Entrada invàlida. Per favor, introdueix un número de l'1 al 6 o 'q' per sortir.")

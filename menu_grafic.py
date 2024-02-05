@@ -3,127 +3,42 @@ from tkinter import ttk
 from ttkthemes import ThemedTk
 import tasca1_shodan, tasca2_harvester, tasca3_osint, tasca4_escaneig, tasca5_ssh, tasca6_enumeracio
 
-# def funcio_unificada(eina, params="none"):
-#     # Limpiar la ventana antes de mostrar la nueva interfaz
-#     limpiar_ventana()
-
-#     def mostrar_informacion_host():
-#         try:
-#             ip_address = entrada_ip.get()
-
-#             resultado = "Resultat buit"
-#             if (eina == "shodan"):
-#                 resultado = tasca1_shodan.obtenir_informacio_params(ip_address)
-#             elif (eina == "osint"):
-#                 print("")
-#             elif (eina == "harvester"):
-#                 domain = entrada_domini.get()
-#                 max_results = entrada_max_resultats.get()
-#                 sources = entrada_fonts.get()
-#                 resultado = tasca2_harvester.recopilar_informacio_domini_params(domain, max_results, sources)
-#             elif (eina == "nmap"):
-#                 resultado = tasca4_escaneig.execute_nmap_params(ip_address, params)
-#             elif (eina == "ssh"):
-#                 resultado = tasca5_ssh.auditar_ssh_parametre(ip_address, False)
-#             elif (eina == "enum4linux"):
-#                 resultado = tasca6_enumeracio.enumerar_host_parametre(ip_address)
-
-#             # Convertir resultado a cadena antes de insertarlo en el widget de texto
-#             resultado_str = str(resultado)
-
-#             texto_salida.config(state=tk.NORMAL)
-#             texto_salida.delete(1.0, tk.END)
-#             texto_salida.insert(tk.END, resultado_str)
-#             texto_salida.config(state=tk.DISABLED)
-#         except Exception as e:
-#             mensaje_error = f"Error al obtenir información del host: {e}"
-#             texto_salida.config(state=tk.NORMAL)
-#             texto_salida.delete(1.0, tk.END)
-#             texto_salida.insert(tk.END, mensaje_error)
-#             texto_salida.config(state=tk.DISABLED)
-
-#     titol = "Titol"
-#     subtitol = "Subtitol"
-#     if (eina == "shodan"):
-#         titol = "Shodan"
-#     elif (eina == "osint"):
-#         titol = "Osint"
-#     elif (eina == "harvester"):
-#         titol = "Harvester"
-#     elif (eina == "nmap"):
-#         titol = "Nmap"
-#     elif (eina == "ssh"):
-#         titol = "Ssh-audit"
-#     elif (eina == "enum4linux"):
-#         titol = "Enum4linux"
-
-#     # Crear un Frame para agrupar etiqueta_ip, entrada_ip, y boton_confirmar
-#     frame_entrada = ttk.Frame(finestra)
-#     frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  # Alineado a la izquierda
-
-#     # Título de la sección con formato personalizado
-#     estilo_titulo = ttk.Style()
-#     estilo_titulo.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  # Fuente más grande, negrita y alineado a la izquierda
-#     titulo_seccion = ttk.Label(frame_entrada, text=titol, style="EstiloTitulo.TLabel")
-#     titulo_seccion.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  # Sticky "w" para alineación a la izquierda
-
-#     # Subtítulo
-#     subtitulo_seccion = ttk.Label(frame_entrada, text="Obtenció d'informació detallada sobre un host específic utilitzant Shodan.")
-#     subtitulo_seccion.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  # Sticky "w" para alineación a la izquierda
-
-#     etiqueta_ip = ttk.Label(frame_entrada, text="Introdueix una adreça IP:")
-#     etiqueta_ip.grid(row=2, column=0, padx=5)
-
-#     entrada_ip = ttk.Entry(frame_entrada, width=15)
-#     entrada_ip.grid(row=2, column=1, padx=5)
-
-#     boton_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
-#     boton_confirmar.grid(row=2, column=2, padx=5)
-
-#     boton_telegram = ttk.Button(frame_entrada, text="Telegram")
-#     boton_telegram.grid(row=2, column=3, padx=5)
-
-#     # Crear el área de texto para mostrar la salida de la función
-#     texto_salida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-#     texto_salida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-#     texto_salida.config(state=tk.DISABLED)
-
 def shodan():
-    # Limpiar la ventana antes de mostrar la nueva interfaz
-    limpiar_ventana()
+    # Netejar la finestra abans de mostrar la nova interficie
+    netejar_finestra()
 
     def mostrar_informacion_host():
         try:
             ip_address = entrada_ip.get()
-            resultado = tasca1_shodan.obtenir_informacio_grafic(ip_address)
+            resultat = tasca1_shodan.obtenir_informacio_grafic(ip_address)
 
-            # Convertir resultado a cadena antes de insertarlo en el widget de texto
-            resultado_str = str(resultado)
+            # Convertir resultat a cadena antes de insertarlo en el widget de texto
+            resultat_str = str(resultat)
 
-            texto_salida.config(state=tk.NORMAL)
-            texto_salida.delete(1.0, tk.END)
-            texto_salida.insert(tk.END, resultado_str)
-            texto_salida.config(state=tk.DISABLED)
+            text_sortida.config(state=tk.NORMAL)
+            text_sortida.delete(1.0, tk.END)
+            text_sortida.insert(tk.END, resultat_str)
+            text_sortida.config(state=tk.DISABLED)
         except Exception as e:
             mensaje_error = f"Error al obtenir información del host: {e}"
-            texto_salida.config(state=tk.NORMAL)
-            texto_salida.delete(1.0, tk.END)
-            texto_salida.insert(tk.END, mensaje_error)
-            texto_salida.config(state=tk.DISABLED)
+            text_sortida.config(state=tk.NORMAL)
+            text_sortida.delete(1.0, tk.END)
+            text_sortida.insert(tk.END, mensaje_error)
+            text_sortida.config(state=tk.DISABLED)
 
-    # Crear un Frame para agrupar etiqueta_ip, entrada_ip, y boton_confirmar
+    # Crear un Frame para agrupar etiqueta_ip, entrada_ip, y boto_confirmar
     frame_entrada = ttk.Frame(finestra)
-    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  # Alineado a la izquierda
+    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
     # Título de la sección con formato personalizado
-    estilo_titulo = ttk.Style()
-    estilo_titulo.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  # Fuente más grande, negrita y alineado a la izquierda
-    titulo_seccion = ttk.Label(frame_entrada, text="Shodan", style="EstiloTitulo.TLabel")
-    titulo_seccion.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  # Sticky "w" para alineación a la izquierda
+    estil_titol = ttk.Style()
+    estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
+    titol_seleccio = ttk.Label(frame_entrada, text="Shodan", style="EstiloTitulo.TLabel")
+    titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtítulo
-    subtitulo_seccion = ttk.Label(frame_entrada, text="Obtenció d'informació detallada sobre un host específic utilitzant Shodan.")
-    subtitulo_seccion.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  # Sticky "w" para alineación a la izquierda
+    # Subtitol
+    subtitol_seleccio = ttk.Label(frame_entrada, text="Obtenció d'informació detallada sobre un host específic utilitzant Shodan.")
+    subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
     etiqueta_ip = ttk.Label(frame_entrada, text="Introdueix una adreça IP:")
     etiqueta_ip.grid(row=2, column=0, padx=5)
@@ -131,56 +46,56 @@ def shodan():
     entrada_ip = ttk.Entry(frame_entrada, width=15)
     entrada_ip.grid(row=2, column=1, padx=5)
 
-    boton_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
-    boton_confirmar.grid(row=2, column=2, padx=5)
+    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
+    boto_confirmar.grid(row=2, column=2, padx=5)
 
-    boton_telegram = ttk.Button(frame_entrada, text="Telegram")
-    boton_telegram.grid(row=2, column=3, padx=5)
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram.grid(row=2, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la salida de la función
-    texto_salida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-    texto_salida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-    texto_salida.config(state=tk.DISABLED)
+    # Crear el área de texto para mostrar la sortida de la función
+    text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
+    text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
+    text_sortida.config(state=tk.DISABLED)
 
 def harvester():
-    # Limpiar la ventana antes de mostrar la nueva interfaz
-    limpiar_ventana()
+    # Netejar la finestra abans de mostrar la nova interficie
+    netejar_finestra()
 
     def mostrar_informacion_host():
         try:
             domain = entrada_domini.get()
             max_results = entrada_max_resultats.get()
             sources = entrada_fonts.get()
-            resultado = tasca2_harvester.recopilar_informacio_domini_params(domain, max_results, sources)
+            resultat = tasca2_harvester.recopilar_informacio_domini_params(domain, max_results, sources)
 
-            # Convertir resultado a cadena antes de insertarlo en el widget de texto
-            resultado_str = str(resultado)
+            # Convertir resultat a cadena antes de insertarlo en el widget de texto
+            resultat_str = str(resultat)
 
-            texto_salida.config(state=tk.NORMAL)
-            texto_salida.delete(1.0, tk.END)
-            texto_salida.insert(tk.END, resultado_str)
-            texto_salida.config(state=tk.DISABLED)
+            text_sortida.config(state=tk.NORMAL)
+            text_sortida.delete(1.0, tk.END)
+            text_sortida.insert(tk.END, resultat_str)
+            text_sortida.config(state=tk.DISABLED)
         except Exception as e:
             mensaje_error = f"Error al obtener información del host: {e}"
-            texto_salida.config(state=tk.NORMAL)
-            texto_salida.delete(1.0, tk.END)
-            texto_salida.insert(tk.END, mensaje_error)
-            texto_salida.config(state=tk.DISABLED)
+            text_sortida.config(state=tk.NORMAL)
+            text_sortida.delete(1.0, tk.END)
+            text_sortida.insert(tk.END, mensaje_error)
+            text_sortida.config(state=tk.DISABLED)
 
     # Crear un Frame para agrupar etiqueta_domini, entrada_domini, etiqueta_max_resultats, entrada_max_resultats,
-    # etiqueta_fonts, entrada_fonts y boton_confirmar
+    # etiqueta_fonts, entrada_fonts y boto_confirmar
     frame_entrada = ttk.Frame(finestra)
-    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  # Alineado a la izquierda
+    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
     # Título de la sección con formato personalizado
-    estilo_titulo = ttk.Style()
-    estilo_titulo.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  # Fuente más grande, negrita y alineado a la izquierda
-    titulo_seccion = ttk.Label(frame_entrada, text="The Harvester", style="EstiloTitulo.TLabel")
-    titulo_seccion.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  # Sticky "w" para alineación a la izquierda
+    estil_titol = ttk.Style()
+    estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
+    titol_seleccio = ttk.Label(frame_entrada, text="The Harvester", style="EstiloTitulo.TLabel")
+    titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtítulo
-    subtitulo_seccion = ttk.Label(frame_entrada, text="Obtenció d'informació publica relacionada amb un domini utilitzant Harvester.")
-    subtitulo_seccion.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  # Sticky "w" para alineación a la izquierda
+    # Subtitol
+    subtitol_seleccio = ttk.Label(frame_entrada, text="Obtenció d'informació publica relacionada amb un domini utilitzant Harvester.")
+    subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
     # Etiqueta y entrada para Domini de destí
     etiqueta_domini = ttk.Label(frame_entrada, text="Domini de destí:")
@@ -200,55 +115,55 @@ def harvester():
     entrada_fonts = ttk.Entry(frame_entrada, width=15)
     entrada_fonts.grid(row=4, column=1, padx=5)
 
-    # Botón de Confirmar
-    boton_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
-    boton_confirmar.grid(row=4, column=2, padx=5)  # Mismo row que la etiqueta y entrada de "Fonts de dades"
+    # Botó de Confirmar
+    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
+    boto_confirmar.grid(row=4, column=2, padx=5)  # Mismo row que la etiqueta y entrada de "Fonts de dades"
 
-    boton_telegram = ttk.Button(frame_entrada, text="Telegram")
-    boton_telegram.grid(row=4, column=3, padx=5)
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram.grid(row=4, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la salida de la función
-    texto_salida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-    texto_salida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-    texto_salida.config(state=tk.DISABLED)
+    # Crear el área de texto para mostrar la sortida de la función
+    text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
+    text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
+    text_sortida.config(state=tk.DISABLED)
 
 def osint():
-    # Limpiar la ventana antes de mostrar la nueva interfaz
-    limpiar_ventana()
+    # Netejar la finestra abans de mostrar la nova interficie
+    netejar_finestra()
 
     def mostrar_informacion_host():
         print ("lol")
         # try:
-        #     resultado = tasca3_osint.ejecutar_osmedeus()
-        #     # Convertir resultado a cadena antes de insertarlo en el widget de texto
+        #     resultat = tasca3_osint.ejecutar_osmedeus()
+        #     # Convertir resultat a cadena antes de insertarlo en el widget de texto
             
-        #     resultado_str = str(resultado)
+        #     resultat_str = str(resultat)
 
-        #     texto_salida.config(state=tk.NORMAL)
-        #     texto_salida.delete(1.0, tk.END)
-        #     texto_salida.insert(tk.END, resultado_str)
-        #     texto_salida.config(state=tk.DISABLED)
+        #     text_sortida.config(state=tk.NORMAL)
+        #     text_sortida.delete(1.0, tk.END)
+        #     text_sortida.insert(tk.END, resultat_str)
+        #     text_sortida.config(state=tk.DISABLED)
         # except Exception as e:
         #     mensaje_error = f"Error al obtener información del host: {e}"
-        #     texto_salida.config(state=tk.NORMAL)
-        #     texto_salida.delete(1.0, tk.END)
-        #     texto_salida.insert(tk.END, mensaje_error)
-        #     texto_salida.config(state=tk.DISABLED)
+        #     text_sortida.config(state=tk.NORMAL)
+        #     text_sortida.delete(1.0, tk.END)
+        #     text_sortida.insert(tk.END, mensaje_error)
+        #     text_sortida.config(state=tk.DISABLED)
 
     # Crear un Frame para agrupar etiqueta_domini, entrada_domini, etiqueta_max_resultats, entrada_max_resultats,
-    # etiqueta_fonts, entrada_fonts y boton_confirmar
+    # etiqueta_fonts, entrada_fonts y boto_confirmar
     frame_entrada = ttk.Frame(finestra)
-    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  # Alineado a la izquierda
+    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
     # Título de la sección con formato personalizado
-    estilo_titulo = ttk.Style()
-    estilo_titulo.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  # Fuente más grande, negrita y alineado a la izquierda
-    titulo_seccion = ttk.Label(frame_entrada, text="Osint", style="EstiloTitulo.TLabel")
-    titulo_seccion.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  # Sticky "w" para alineación a la izquierda
+    estil_titol = ttk.Style()
+    estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
+    titol_seleccio = ttk.Label(frame_entrada, text="Osint", style="EstiloTitulo.TLabel")
+    titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtítulo
-    subtitulo_seccion = ttk.Label(frame_entrada, text="No està fet encara c:")
-    subtitulo_seccion.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  # Sticky "w" para alineación a la izquierda
+    # Subtitol
+    subtitol_seleccio = ttk.Label(frame_entrada, text="No està fet encara c:")
+    subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
     etiqueta_ip = ttk.Label(frame_entrada, text="Introdueix una adreça IP:")
     etiqueta_ip.grid(row=2, column=0, padx=5)
@@ -256,81 +171,81 @@ def osint():
     entrada_ip = ttk.Entry(frame_entrada, width=15)
     entrada_ip.grid(row=2, column=1, padx=5)
 
-    boton_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
-    boton_confirmar.grid(row=2, column=2, padx=5)
+    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
+    boto_confirmar.grid(row=2, column=2, padx=5)
 
-    boton_telegram = ttk.Button(frame_entrada, text="Telegram")
-    boton_telegram.grid(row=2, column=3, padx=5)
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram.grid(row=2, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la salida de la función
-    texto_salida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-    texto_salida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-    texto_salida.config(state=tk.DISABLED)
+    # Crear el área de texto para mostrar la sortida de la función
+    text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
+    text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
+    text_sortida.config(state=tk.DISABLED)
 
 def nmap(params, subtitle):
-    # Limpiar la ventana antes de mostrar la nueva interfaz
-    limpiar_ventana()
+    # Netejar la finestra abans de mostrar la nova interficie
+    netejar_finestra()
 
     def ejecutar_escaneo_nmap():
         try:
             ip_target = entrada_ip.get()
-            resultado = tasca4_escaneig.execute_nmap_params(ip_target, params)
+            resultat = tasca4_escaneig.execute_nmap_params_grafic(ip_target, params)
 
-            # Obtener la salida del proceso y el código de retorno
-            salida = resultado.stdout
-            codigo_retorno = resultado.returncode
+            # Obtenir la sortida del proces i el codi de retorn
+            sortida = resultat.stdout
+            codigo_retorno = resultat.returncode
 
             if codigo_retorno == 0:
-                # No es necesario decodificar si la salida ya es texto
-                resultado_str = str(salida)
-                texto_salida.config(state=tk.NORMAL)
-                texto_salida.delete(1.0, tk.END)
-                texto_salida.insert(tk.END, resultado_str)
-                texto_salida.config(state=tk.DISABLED)
+                
+                resultat_str = str(sortida)
+                text_sortida.config(state=tk.NORMAL)
+                text_sortida.delete(1.0, tk.END)
+                text_sortida.insert(tk.END, resultat_str)
+                text_sortida.config(state=tk.DISABLED)
             else:
                 mensaje_error = f"Error al executar l'escanneig Nmap. Codi de retorn: {codigo_retorno}"
-                texto_salida.config(state=tk.NORMAL)
-                texto_salida.delete(1.0, tk.END)
-                texto_salida.insert(tk.END, mensaje_error)
-                texto_salida.config(state=tk.DISABLED)
+                text_sortida.config(state=tk.NORMAL)
+                text_sortida.delete(1.0, tk.END)
+                text_sortida.insert(tk.END, mensaje_error)
+                text_sortida.config(state=tk.DISABLED)
         except Exception as e:
             mensaje_error = f"Error al executar l'escanneig Nmap: {e}"
-            texto_salida.config(state=tk.NORMAL)
-            texto_salida.delete(1.0, tk.END)
-            texto_salida.insert(tk.END, mensaje_error)
-            texto_salida.config(state=tk.DISABLED)
+            text_sortida.config(state=tk.NORMAL)
+            text_sortida.delete(1.0, tk.END)
+            text_sortida.insert(tk.END, mensaje_error)
+            text_sortida.config(state=tk.DISABLED)
 
-    # Crear un Frame para agrupar etiqueta_ip, entrada_ip y boton_confirmar
+    # Crear frame per agrupar les etiquetes i el botó
     frame_entrada = ttk.Frame(finestra)
-    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  # Alineado a la izquierda
+    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
     # Título de la sección con formato personalizado
-    estilo_titulo = ttk.Style()
-    estilo_titulo.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  # Fuente más grande, negrita y alineado a la izquierda
-    titulo_seccion = ttk.Label(frame_entrada, text="Escaneig", style="EstiloTitulo.TLabel")
-    titulo_seccion.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  # Sticky "w" para alineación a la izquierda
+    estil_titol = ttk.Style()
+    estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
+    titol_seleccio = ttk.Label(frame_entrada, text="Escaneig", style="EstiloTitulo.TLabel")
+    titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtítulo
-    subtitulo_seccion = ttk.Label(frame_entrada, text=subtitle)
-    subtitulo_seccion.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  # Sticky "w" para alineación a la izquierda
+    # Subtitol
+    subtitol_seleccio = ttk.Label(frame_entrada, text=subtitle)
+    subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
-    # Etiqueta y entrada para IP a escanear
+    # Etiqueta i entrada per IP a escanejar
     etiqueta_ip = ttk.Label(frame_entrada, text="IP a escanejar:")
     etiqueta_ip.grid(row=2, column=0, padx=5)
     entrada_ip = ttk.Entry(frame_entrada, width=15)
     entrada_ip.grid(row=2, column=1, padx=5)
 
-    # Botón de Confirmar
-    boton_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_escaneo_nmap)
-    boton_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
+    # Botó de Confirmar
+    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_escaneo_nmap)
+    boto_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
 
-    boton_telegram = ttk.Button(frame_entrada, text="Telegram")
-    boton_telegram.grid(row=2, column=3, padx=5)
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram.grid(row=2, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la salida del escaneo
-    texto_salida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-    texto_salida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-    texto_salida.config(state=tk.DISABLED)
+    # Crear l'àrea de text per mostrar la sortida
+    text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
+    text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
+    text_sortida.config(state=tk.DISABLED)
 
 def descobrir_hosts():
     nmap("-sn", "Descobriment de hosts d'una xarxa.")
@@ -345,160 +260,159 @@ def llistar_vulnerabilitats():
     nmap("--script vulners", "Identificació de vulnerabilitats d'un host.")
 
 def ssh_audit():
-    # Limpiar la ventana antes de mostrar la nueva interfaz
-    limpiar_ventana()
+    # Netejar la finestra abans de mostrar la nova interficie
+    netejar_finestra()
 
     def ejecutar_ssh_audit():
         try:
             ip_target = entrada_ip.get()
-            resultado = tasca5_ssh.auditar_ssh_parametre(ip_target, False)
+            resultat = tasca5_ssh.auditar_ssh_parametre(ip_target, False)
 
-            # Obtener la salida del proceso y el código de retorno
-            salida = resultado.stdout
-            codigo_retorno = resultado.returncode
+            # Obtenir la sortida del proces i el codi de retorn
+            sortida = resultat.stdout
+            codigo_retorno = resultat.returncode
 
-            if salida is not None:
+            if sortida is not None:
                 codigo_retorno = 0
 
             if codigo_retorno == 0:
-                # No es necesario decodificar si la salida ya es texto
-                resultado_str = str(salida)
-                texto_salida.config(state=tk.NORMAL)
-                texto_salida.delete(1.0, tk.END)
-                texto_salida.insert(tk.END, resultado_str)
-                texto_salida.config(state=tk.DISABLED)
+                resultat_str = str(sortida)
+                text_sortida.config(state=tk.NORMAL)
+                text_sortida.delete(1.0, tk.END)
+                text_sortida.insert(tk.END, resultat_str)
+                text_sortida.config(state=tk.DISABLED)
             else:
                 mensaje_error = f"Error al executar l'escanneig ssh_audit. Codi de retorn: {codigo_retorno}"
-                texto_salida.config(state=tk.NORMAL)
-                texto_salida.delete(1.0, tk.END)
-                texto_salida.insert(tk.END, mensaje_error)
-                texto_salida.config(state=tk.DISABLED)
+                text_sortida.config(state=tk.NORMAL)
+                text_sortida.delete(1.0, tk.END)
+                text_sortida.insert(tk.END, mensaje_error)
+                text_sortida.config(state=tk.DISABLED)
         except Exception as e:
             mensaje_error = f"Error al executar l'escanneig ssh_audit: {e}"
-            texto_salida.config(state=tk.NORMAL)
-            texto_salida.delete(1.0, tk.END)
-            texto_salida.insert(tk.END, mensaje_error)
-            texto_salida.config(state=tk.DISABLED)
+            text_sortida.config(state=tk.NORMAL)
+            text_sortida.delete(1.0, tk.END)
+            text_sortida.insert(tk.END, mensaje_error)
+            text_sortida.config(state=tk.DISABLED)
 
-    # Crear un Frame para agrupar etiqueta_ip, entrada_ip y boton_confirmar
+    # Crear frame per agrupar les etiquetes i el botó
     frame_entrada = ttk.Frame(finestra)
-    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  # Alineado a la izquierda
+    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
     # Título de la sección con formato personalizado
-    estilo_titulo = ttk.Style()
-    estilo_titulo.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  # Fuente más grande, negrita y alineado a la izquierda
-    titulo_seccion = ttk.Label(frame_entrada, text="Auditoria SSH", style="EstiloTitulo.TLabel")
-    titulo_seccion.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  # Sticky "w" para alineación a la izquierda
+    estil_titol = ttk.Style()
+    estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
+    titol_seleccio = ttk.Label(frame_entrada, text="Auditoria SSH", style="EstiloTitulo.TLabel")
+    titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtítulo
-    subtitulo_seccion = ttk.Label(frame_entrada, text="Auditoria de la configuració del servidor SSH d'un host.")
-    subtitulo_seccion.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  # Sticky "w" para alineación a la izquierda
+    # Subtitol
+    subtitol_seleccio = ttk.Label(frame_entrada, text="Auditoria de la configuració del servidor SSH d'un host.")
+    subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
-    # Etiqueta y entrada para IP a escanear
+    # Etiqueta i entrada per IP a escanejar
     etiqueta_ip = ttk.Label(frame_entrada, text="IP a escanejar:")
     etiqueta_ip.grid(row=2, column=0, padx=5)
     entrada_ip = ttk.Entry(frame_entrada, width=15)
     entrada_ip.grid(row=2, column=1, padx=5)
 
-    # Botón de Confirmar
-    boton_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_ssh_audit)
-    boton_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
+    # Botó de Confirmar
+    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_ssh_audit)
+    boto_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
 
-    boton_telegram = ttk.Button(frame_entrada, text="Telegram")
-    boton_telegram.grid(row=2, column=3, padx=5)
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram.grid(row=2, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la salida del escaneo
-    texto_salida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-    texto_salida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-    texto_salida.config(state=tk.DISABLED)
+    # Crear l'àrea de text per mostrar la sortida
+    text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
+    text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
+    text_sortida.config(state=tk.DISABLED)
 
 def enum4linux():
-    # Limpiar la ventana antes de mostrar la nueva interfaz
-    limpiar_ventana()
+    # Netejar la finestra abans de mostrar la nova interficie
+    netejar_finestra()
 
     def ejecutar_enum4linux():
         try:
             ip_target = entrada_ip.get()
-            resultado = tasca6_enumeracio.enumerar_host_parametre(ip_target)
+            resultat = tasca6_enumeracio.enumerar_host_parametre(ip_target, False)
 
-            # Obtener la salida del proceso y el código de retorno
-            salida = resultado
+            # Obtenir la sortida del proces i el codi de retorn
+            sortida = resultat
             codigo_retorno = 0
 
             if codigo_retorno == 0:
-                # No es necesario decodificar si la salida ya es texto
-                resultado_str = str(salida)
-                texto_salida.config(state=tk.NORMAL)
-                texto_salida.delete(1.0, tk.END)
-                texto_salida.insert(tk.END, resultado_str)
-                texto_salida.config(state=tk.DISABLED)
+                
+                resultat_str = str(sortida)
+                text_sortida.config(state=tk.NORMAL)
+                text_sortida.delete(1.0, tk.END)
+                text_sortida.insert(tk.END, resultat_str)
+                text_sortida.config(state=tk.DISABLED)
             else:
                 mensaje_error = f"Error al executar l'escanneig ssh_audit. Codi de retorn: {codigo_retorno}"
-                texto_salida.config(state=tk.NORMAL)
-                texto_salida.delete(1.0, tk.END)
-                texto_salida.insert(tk.END, mensaje_error)
-                texto_salida.config(state=tk.DISABLED)
+                text_sortida.config(state=tk.NORMAL)
+                text_sortida.delete(1.0, tk.END)
+                text_sortida.insert(tk.END, mensaje_error)
+                text_sortida.config(state=tk.DISABLED)
         except Exception as e:
             mensaje_error = f"Error al executar l'escanneig ssh_audit: {e}"
-            texto_salida.config(state=tk.NORMAL)
-            texto_salida.delete(1.0, tk.END)
-            texto_salida.insert(tk.END, mensaje_error)
-            texto_salida.config(state=tk.DISABLED)
+            text_sortida.config(state=tk.NORMAL)
+            text_sortida.delete(1.0, tk.END)
+            text_sortida.insert(tk.END, mensaje_error)
+            text_sortida.config(state=tk.DISABLED)
 
-    # Crear un Frame para agrupar etiqueta_ip, entrada_ip y boton_confirmar
+    # Crear frame per agrupar les etiquetes i el botó
     frame_entrada = ttk.Frame(finestra)
-    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  # Alineado a la izquierda
+    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
     # Título de la sección con formato personalizado
-    estilo_titulo = ttk.Style()
-    estilo_titulo.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  # Fuente más grande, negrita y alineado a la izquierda
-    titulo_seccion = ttk.Label(frame_entrada, text="Enumeració", style="EstiloTitulo.TLabel")
-    titulo_seccion.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  # Sticky "w" para alineación a la izquierda
+    estil_titol = ttk.Style()
+    estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
+    titol_seleccio = ttk.Label(frame_entrada, text="Enumeració", style="EstiloTitulo.TLabel")
+    titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtítulo
-    subtitulo_seccion = ttk.Label(frame_entrada, text="Enumera i recopila informació d'un host. Pot tardar molt.")
-    subtitulo_seccion.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  # Sticky "w" para alineación a la izquierda
+    # Subtitol
+    subtitol_seleccio = ttk.Label(frame_entrada, text="Enumera i recopila informació d'un host. Pot tardar molt.")
+    subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
-    # Etiqueta y entrada para IP a escanear
+    # Etiqueta i entrada per IP a escanejar
     etiqueta_ip = ttk.Label(frame_entrada, text="IP a escanejar:")
     etiqueta_ip.grid(row=2, column=0, padx=5)
     entrada_ip = ttk.Entry(frame_entrada, width=15)
     entrada_ip.grid(row=2, column=1, padx=5)
 
-    # Botón de Confirmar
-    boton_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_enum4linux)
-    boton_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
+    # Botó de Confirmar
+    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_enum4linux)
+    boto_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
 
-    boton_telegram = ttk.Button(frame_entrada, text="Telegram")
-    boton_telegram.grid(row=2, column=3, padx=5)
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram.grid(row=2, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la salida del escaneo
-    texto_salida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-    texto_salida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-    texto_salida.config(state=tk.DISABLED)
+    # Crear l'àrea de text per mostrar la sortida
+    text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
+    text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
+    text_sortida.config(state=tk.DISABLED)
 
-def limpiar_ventana():
-    # Obtener todos los widgets dentro de la ventana principal
+def netejar_finestra():
+    # Obté els widgets de la finestra
     widgets = finestra.winfo_children()
 
-    # Eliminar todos los widgets excepto los menús
+    # Eliminar-los tots menys el menú
     for widget in widgets:
         if not isinstance(widget, tk.Menu):
             widget.destroy()
 
-# Crear la ventana principal
+# Crear la finestra principal
 finestra = ThemedTk(theme="radiance")
 finestra.attributes('-alpha', 0.0)
 finestra.title("BAS-Solutions")
 
-# Establecer el tamaño de la ventana
+# Estableix la mida de la finestra
 finestra.geometry("800x600")
 
 # Crear el menú
 menu_principal = tk.Menu(finestra)
 finestra.config(menu=menu_principal)
 
-# Crear el menú "Eines" y sus submenús
+# Crear el menú "Eines" i els seus submenús
 menu_eines = tk.Menu(menu_principal)
 menu_principal.add_cascade(label="Eines", menu=menu_eines)
 
@@ -506,7 +420,7 @@ menu_eines.add_command(label="Shodan", command=shodan)
 menu_eines.add_command(label="Harvester", command=harvester)
 menu_eines.add_command(label="Osint", command=osint)
 
-# Submenú "Nmap" con sus opciones
+# Submenú "Nmap" i les seves opciones
 menu_nmap = tk.Menu(menu_eines)
 menu_eines.add_cascade(label="Nmap", menu=menu_nmap)
 
