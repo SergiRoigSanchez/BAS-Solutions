@@ -1,24 +1,28 @@
 import tkinter as tk
 from tkinter import ttk
 from ttkthemes import ThemedTk
-import tasca1_shodan, tasca2_harvester, tasca3_osint, tasca4_escaneig, tasca5_ssh, tasca6_enumeracio
+import tasca1_shodan, tasca2_harvester, tasca4_escaneig, tasca5_ssh, tasca6_enumeracio, tasca_telegram
 
 def shodan():
     # Netejar la finestra abans de mostrar la nova interficie
     netejar_finestra()
 
-    def mostrar_informacion_host():
+    def mostrar_informacio_host():
         try:
+            # Obtenir les dades de la interficie
             ip_address = entrada_ip.get()
-            resultat = tasca1_shodan.obtenir_informacio_grafic(ip_address)
 
-            # Convertir resultat a cadena antes de insertarlo en el widget de texto
+            # Passar-les per parametre a la funció que obté la informació
+            resultat = tasca1_shodan.obtenir_informacio_host(ip_address)
             resultat_str = str(resultat)
 
+            # Netejar el quadre de text i posar la informació nova
             text_sortida.config(state=tk.NORMAL)
             text_sortida.delete(1.0, tk.END)
             text_sortida.insert(tk.END, resultat_str)
             text_sortida.config(state=tk.DISABLED)
+
+        # Tractament d'excepcions
         except Exception as e:
             mensaje_error = f"Error al obtenir información del host: {e}"
             text_sortida.config(state=tk.NORMAL)
@@ -26,33 +30,49 @@ def shodan():
             text_sortida.insert(tk.END, mensaje_error)
             text_sortida.config(state=tk.DISABLED)
 
+    def enviar_telegram():
+        text = text_sortida.get("1.0", tk.END)
+        informacio = ""
+        if text and text.strip():
+            tasca_telegram.enviar_missatge(text)
+            informacio = "Missatge enviat correctament."
+        else:
+            informacio = "No hi ha res que enviar."
+        
+        # Netejar el quadre de text i posar la informació nova
+        text_sortida.config(state=tk.NORMAL)
+        text_sortida.delete(1.0, tk.END)
+        text_sortida.insert(tk.END, informacio)
+        text_sortida.config(state=tk.DISABLED)
+
     # Crear un Frame para agrupar etiqueta_ip, entrada_ip, y boto_confirmar
     frame_entrada = ttk.Frame(finestra)
     frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
-    # Título de la sección con formato personalizado
+    # Títol de la secció
     estil_titol = ttk.Style()
     estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
     titol_seleccio = ttk.Label(frame_entrada, text="Shodan", style="EstiloTitulo.TLabel")
     titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtitol
+    # Subtítol
     subtitol_seleccio = ttk.Label(frame_entrada, text="Obtenció d'informació detallada sobre un host específic utilitzant Shodan.")
     subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
+    # Etiquetes, inputs i botons
     etiqueta_ip = ttk.Label(frame_entrada, text="Introdueix una adreça IP:")
     etiqueta_ip.grid(row=2, column=0, padx=5)
 
     entrada_ip = ttk.Entry(frame_entrada, width=15)
     entrada_ip.grid(row=2, column=1, padx=5)
 
-    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
+    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacio_host)
     boto_confirmar.grid(row=2, column=2, padx=5)
 
-    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram", command=enviar_telegram)
     boto_telegram.grid(row=2, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la sortida de la función
+    # Crear l'àrea de text que mostra la sortida de la funció
     text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
     text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
     text_sortida.config(state=tk.DISABLED)
@@ -66,7 +86,7 @@ def harvester():
             domain = entrada_domini.get()
             max_results = entrada_max_resultats.get()
             sources = entrada_fonts.get()
-            resultat = tasca2_harvester.recopilar_informacio_domini_params(domain, max_results, sources)
+            resultat = tasca2_harvester.recopilar_informacio_domini(domain, max_results, sources)
 
             # Convertir resultat a cadena antes de insertarlo en el widget de texto
             resultat_str = str(resultat)
@@ -82,18 +102,33 @@ def harvester():
             text_sortida.insert(tk.END, mensaje_error)
             text_sortida.config(state=tk.DISABLED)
 
+    def enviar_telegram():
+        text = text_sortida.get("1.0", tk.END)
+        informacio = ""
+        if text and text.strip():
+            tasca_telegram.enviar_missatge(text)
+            informacio = "Missatge enviat correctament."
+        else:
+            informacio = "No hi ha res que enviar."
+        
+        # Netejar el quadre de text i posar la informació nova
+        text_sortida.config(state=tk.NORMAL)
+        text_sortida.delete(1.0, tk.END)
+        text_sortida.insert(tk.END, informacio)
+        text_sortida.config(state=tk.DISABLED)
+
     # Crear un Frame para agrupar etiqueta_domini, entrada_domini, etiqueta_max_resultats, entrada_max_resultats,
     # etiqueta_fonts, entrada_fonts y boto_confirmar
     frame_entrada = ttk.Frame(finestra)
     frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
-    # Título de la sección con formato personalizado
+    # Títol de la secció
     estil_titol = ttk.Style()
     estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
     titol_seleccio = ttk.Label(frame_entrada, text="The Harvester", style="EstiloTitulo.TLabel")
     titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtitol
+    # Subtítol
     subtitol_seleccio = ttk.Label(frame_entrada, text="Obtenció d'informació publica relacionada amb un domini utilitzant Harvester.")
     subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
@@ -119,65 +154,10 @@ def harvester():
     boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
     boto_confirmar.grid(row=4, column=2, padx=5)  # Mismo row que la etiqueta y entrada de "Fonts de dades"
 
-    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram", command=enviar_telegram)
     boto_telegram.grid(row=4, column=3, padx=5)
 
-    # Crear el área de texto para mostrar la sortida de la función
-    text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
-    text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
-    text_sortida.config(state=tk.DISABLED)
-
-def osint():
-    # Netejar la finestra abans de mostrar la nova interficie
-    netejar_finestra()
-
-    def mostrar_informacion_host():
-        print ("lol")
-        # try:
-        #     resultat = tasca3_osint.ejecutar_osmedeus()
-        #     # Convertir resultat a cadena antes de insertarlo en el widget de texto
-            
-        #     resultat_str = str(resultat)
-
-        #     text_sortida.config(state=tk.NORMAL)
-        #     text_sortida.delete(1.0, tk.END)
-        #     text_sortida.insert(tk.END, resultat_str)
-        #     text_sortida.config(state=tk.DISABLED)
-        # except Exception as e:
-        #     mensaje_error = f"Error al obtener información del host: {e}"
-        #     text_sortida.config(state=tk.NORMAL)
-        #     text_sortida.delete(1.0, tk.END)
-        #     text_sortida.insert(tk.END, mensaje_error)
-        #     text_sortida.config(state=tk.DISABLED)
-
-    # Crear un Frame para agrupar etiqueta_domini, entrada_domini, etiqueta_max_resultats, entrada_max_resultats,
-    # etiqueta_fonts, entrada_fonts y boto_confirmar
-    frame_entrada = ttk.Frame(finestra)
-    frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
-
-    # Título de la sección con formato personalizado
-    estil_titol = ttk.Style()
-    estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
-    titol_seleccio = ttk.Label(frame_entrada, text="Osint", style="EstiloTitulo.TLabel")
-    titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
-
-    # Subtitol
-    subtitol_seleccio = ttk.Label(frame_entrada, text="No està fet encara c:")
-    subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
-
-    etiqueta_ip = ttk.Label(frame_entrada, text="Introdueix una adreça IP:")
-    etiqueta_ip.grid(row=2, column=0, padx=5)
-
-    entrada_ip = ttk.Entry(frame_entrada, width=15)
-    entrada_ip.grid(row=2, column=1, padx=5)
-
-    boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=mostrar_informacion_host)
-    boto_confirmar.grid(row=2, column=2, padx=5)
-
-    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
-    boto_telegram.grid(row=2, column=3, padx=5)
-
-    # Crear el área de texto para mostrar la sortida de la función
+    # Crear l'àrea de text que mostra la sortida de la funció
     text_sortida = tk.Text(finestra, wrap=tk.WORD, height=15, width=50)
     text_sortida.pack(expand=True, padx=10, pady=(0, 10), fill=tk.BOTH)
     text_sortida.config(state=tk.DISABLED)
@@ -189,7 +169,7 @@ def nmap(params, subtitle):
     def ejecutar_escaneo_nmap():
         try:
             ip_target = entrada_ip.get()
-            resultat = tasca4_escaneig.execute_nmap_params_grafic(ip_target, params)
+            resultat = tasca4_escaneig.executar_escaneig(ip_target, params, True)
 
             # Obtenir la sortida del proces i el codi de retorn
             sortida = resultat.stdout
@@ -215,17 +195,32 @@ def nmap(params, subtitle):
             text_sortida.insert(tk.END, mensaje_error)
             text_sortida.config(state=tk.DISABLED)
 
+    def enviar_telegram():
+        text = text_sortida.get("1.0", tk.END)
+        informacio = ""
+        if text and text.strip():
+            tasca_telegram.enviar_missatge(text)
+            informacio = "Missatge enviat correctament."
+        else:
+            informacio = "No hi ha res que enviar."
+        
+        # Netejar el quadre de text i posar la informació nova
+        text_sortida.config(state=tk.NORMAL)
+        text_sortida.delete(1.0, tk.END)
+        text_sortida.insert(tk.END, informacio)
+        text_sortida.config(state=tk.DISABLED)
+
     # Crear frame per agrupar les etiquetes i el botó
     frame_entrada = ttk.Frame(finestra)
     frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
-    # Título de la sección con formato personalizado
+    # Títol de la secció
     estil_titol = ttk.Style()
     estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
     titol_seleccio = ttk.Label(frame_entrada, text="Escaneig", style="EstiloTitulo.TLabel")
     titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtitol
+    # Subtítol
     subtitol_seleccio = ttk.Label(frame_entrada, text=subtitle)
     subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
@@ -239,7 +234,7 @@ def nmap(params, subtitle):
     boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_escaneo_nmap)
     boto_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
 
-    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram", command=enviar_telegram)
     boto_telegram.grid(row=2, column=3, padx=5)
 
     # Crear l'àrea de text per mostrar la sortida
@@ -266,7 +261,7 @@ def ssh_audit():
     def ejecutar_ssh_audit():
         try:
             ip_target = entrada_ip.get()
-            resultat = tasca5_ssh.auditar_ssh_parametre(ip_target, False)
+            resultat = tasca5_ssh.auditar_ssh(ip_target, True)
 
             # Obtenir la sortida del proces i el codi de retorn
             sortida = resultat.stdout
@@ -294,17 +289,32 @@ def ssh_audit():
             text_sortida.insert(tk.END, mensaje_error)
             text_sortida.config(state=tk.DISABLED)
 
+    def enviar_telegram():
+        text = text_sortida.get("1.0", tk.END)
+        informacio = ""
+        if text and text.strip():
+            tasca_telegram.enviar_missatge(text)
+            informacio = "Missatge enviat correctament."
+        else:
+            informacio = "No hi ha res que enviar."
+        
+        # Netejar el quadre de text i posar la informació nova
+        text_sortida.config(state=tk.NORMAL)
+        text_sortida.delete(1.0, tk.END)
+        text_sortida.insert(tk.END, informacio)
+        text_sortida.config(state=tk.DISABLED)
+
     # Crear frame per agrupar les etiquetes i el botó
     frame_entrada = ttk.Frame(finestra)
     frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
-    # Título de la sección con formato personalizado
+    # Títol de la secció
     estil_titol = ttk.Style()
     estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
     titol_seleccio = ttk.Label(frame_entrada, text="Auditoria SSH", style="EstiloTitulo.TLabel")
     titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtitol
+    # Subtítol
     subtitol_seleccio = ttk.Label(frame_entrada, text="Auditoria de la configuració del servidor SSH d'un host.")
     subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
@@ -318,7 +328,7 @@ def ssh_audit():
     boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_ssh_audit)
     boto_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
 
-    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram", command=enviar_telegram)
     boto_telegram.grid(row=2, column=3, padx=5)
 
     # Crear l'àrea de text per mostrar la sortida
@@ -333,7 +343,7 @@ def enum4linux():
     def ejecutar_enum4linux():
         try:
             ip_target = entrada_ip.get()
-            resultat = tasca6_enumeracio.enumerar_host_parametre(ip_target, False)
+            resultat = tasca6_enumeracio.enumerar_host(ip_target, True)
 
             # Obtenir la sortida del proces i el codi de retorn
             sortida = resultat
@@ -359,17 +369,32 @@ def enum4linux():
             text_sortida.insert(tk.END, mensaje_error)
             text_sortida.config(state=tk.DISABLED)
 
+    def enviar_telegram():
+        text = text_sortida.get("1.0", tk.END)
+        informacio = ""
+        if text and text.strip():
+            tasca_telegram.enviar_missatge(text)
+            informacio = "Missatge enviat correctament."
+        else:
+            informacio = "No hi ha res que enviar."
+        
+        # Netejar el quadre de text i posar la informació nova
+        text_sortida.config(state=tk.NORMAL)
+        text_sortida.delete(1.0, tk.END)
+        text_sortida.insert(tk.END, informacio)
+        text_sortida.config(state=tk.DISABLED)
+
     # Crear frame per agrupar les etiquetes i el botó
     frame_entrada = ttk.Frame(finestra)
     frame_entrada.pack(padx=10, pady=10, anchor=tk.W)  
 
-    # Título de la sección con formato personalizado
+    # Títol de la secció
     estil_titol = ttk.Style()
     estil_titol.configure("EstiloTitulo.TLabel", font=('Arial', 14, 'bold'), anchor='w')  
     titol_seleccio = ttk.Label(frame_entrada, text="Enumeració", style="EstiloTitulo.TLabel")
     titol_seleccio.grid(row=0, column=0, columnspan=3, padx=5, pady=5, sticky="w")  
 
-    # Subtitol
+    # Subtítol
     subtitol_seleccio = ttk.Label(frame_entrada, text="Enumera i recopila informació d'un host. Pot tardar molt.")
     subtitol_seleccio.grid(row=1, column=0, columnspan=10, padx=5, pady=2, sticky="w")  
 
@@ -383,7 +408,7 @@ def enum4linux():
     boto_confirmar = ttk.Button(frame_entrada, text="Confirmar", command=ejecutar_enum4linux)
     boto_confirmar.grid(row=2, column=2, padx=5)  # Cambiado de row=1 a row=0
 
-    boto_telegram = ttk.Button(frame_entrada, text="Telegram")
+    boto_telegram = ttk.Button(frame_entrada, text="Telegram", command=enviar_telegram)
     boto_telegram.grid(row=2, column=3, padx=5)
 
     # Crear l'àrea de text per mostrar la sortida
@@ -399,6 +424,19 @@ def netejar_finestra():
     for widget in widgets:
         if not isinstance(widget, tk.Menu):
             widget.destroy()
+
+def center(win):
+    win.update_idletasks()
+    width = win.winfo_width()
+    frm_width = win.winfo_rootx() - win.winfo_x()
+    win_width = width + 2 * frm_width
+    height = win.winfo_height()
+    titlebar_height = win.winfo_rooty() - win.winfo_y()
+    win_height = height + titlebar_height + frm_width
+    x = win.winfo_screenwidth() // 2 - win_width // 2
+    y = win.winfo_screenheight() // 2 - win_height // 2
+    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    win.deiconify()
 
 # Crear la finestra principal
 finestra = ThemedTk(theme="radiance")
@@ -418,7 +456,6 @@ menu_principal.add_cascade(label="Eines", menu=menu_eines)
 
 menu_eines.add_command(label="Shodan", command=shodan)
 menu_eines.add_command(label="Harvester", command=harvester)
-menu_eines.add_command(label="Osint", command=osint)
 
 # Submenú "Nmap" i les seves opciones
 menu_nmap = tk.Menu(menu_eines)
@@ -431,20 +468,6 @@ menu_nmap.add_command(label="Llista de vulnerabilitats", command=llistar_vulnera
 
 menu_eines.add_command(label="SSH Audit", command=ssh_audit)
 menu_eines.add_command(label="Enum4Linux", command=enum4linux)
-
-# Iniciar el bucle principal
-def center(win):
-    win.update_idletasks()
-    width = win.winfo_width()
-    frm_width = win.winfo_rootx() - win.winfo_x()
-    win_width = width + 2 * frm_width
-    height = win.winfo_height()
-    titlebar_height = win.winfo_rooty() - win.winfo_y()
-    win_height = height + titlebar_height + frm_width
-    x = win.winfo_screenwidth() // 2 - win_width // 2
-    y = win.winfo_screenheight() // 2 - win_height // 2
-    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-    win.deiconify()
 
 if __name__ == '__main__':
     center(finestra)

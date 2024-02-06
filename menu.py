@@ -1,63 +1,72 @@
-import tasca1_shodan, tasca2_harvester, tasca3_osint, tasca4_escaneig, tasca5_ssh, tasca6_enumeracio, tasca_telegram
+import tasca1_shodan, tasca2_harvester, tasca4_escaneig, tasca5_ssh, tasca6_enumeracio, tasca_telegram
 
 def mostrar_menu():
     print("\nAplicació d'auditoria de BAS Solutions")
     print("1 - Shodan")
     print("2 - The Harvester")
-    print("3 - OSINT")
-    print("4 - Nmap")
-    print("5 - SSH-Audit")
-    print("6 - Enum4linux")
+    print("3 - Nmap")
+    print("4 - SSH-Audit")
+    print("5 - Enum4linux")
 
-def opcio1():
+def shodan():
     print("\nShodan")
-    tasca1_shodan.obtenir_informacio_host()
+    return tasca1_shodan.demanar_adreca()
     
-def opcio2():
+def harvester():
     print("\nThe Harvester")
-    tasca2_harvester.recopilar_informacio_domini()
+    return tasca2_harvester.demanar_dades()
 
-def opcio3():
-    print("\nOSINT")
-    # tasca3_osint.tasca3_osint.
-
-def opcio4():
+def nmap():
     print("\nNmap")
-    tasca4_escaneig.escaneig_nmap()
+    return tasca4_escaneig.demanar_opcio()
 
-def opcio5():
+def ssh_audit():
     print("\nSSH-Audit")
-    tasca5_ssh.auditar_ssh()
+    return tasca5_ssh.demanar_ip()
 
-def opcio6():
+def enum4linux():
     print("\nEnum4Linux")
-    tasca6_enumeracio.enumerar_host()
-    
-while True:
-    mostrar_menu()
-    entrada = input("Tria una opció (1-6) o 'q' per sortir: ")
-    
-    if entrada == 'q':
-        break
+    return tasca6_enumeracio.demanar_ip()
 
-    try:
-        opcion = int(entrada)
-        if opcion == 1:
-            opcio1()
-        elif opcion == 2:
-            opcio2()
-        elif opcion == 3:
-            opcio3()
-        elif opcion == 4:
-            opcio4()
-        elif opcion == 5:
-            opcio5()
-        elif opcion == 6:
-            opcio6()
-        else:
-            print("Opció invàlida. Per favor, tria un número de l'1 al 6.")
+# Bucle del menú principal
+if __name__ == '__main__':  
+    while True:
+        # Mostra les opcions del menú
+        mostrar_menu()
+        entrada = input("Tria una opció (1-6) o 'q' per sortir: ")
+        
+        # Sortim si l'usuari introdueix 'q'
+        if entrada == 'q':
+            break
 
-        input("Prem Enter per tornar al menú principal")
+        try:
+            resultat = ""
 
-    except ValueError:
-        print("Entrada invàlida. Per favor, introdueix un número de l'1 al 6 o 'q' per sortir.")
+            # Entrar a una opció depenent de la entrada
+            opcio = int(entrada)
+            if opcio == 1:
+                resultat = shodan()
+            elif opcio == 2:
+                resultat = harvester()
+            elif opcio == 3:
+                resultat = nmap()
+            elif opcio == 4:
+                resultat = ssh_audit()
+            elif opcio == 5:
+                resultat = enum4linux()
+            else:
+                print("Opció invàlida. Per favor, tria un número de l'1 al 5.")
+
+            # Imprimir per pantalla el resultat
+            print (resultat)
+
+            # Enviar per telegram si l'usuari vol
+            telegram = input("Vols enviar el resultat en un missatge al telegram? (s/n): ")
+            if (telegram == 's'):
+                tasca_telegram.enviar_missatge(resultat)
+                print ("Missatge enviat correctament.")
+
+            input("Prem Enter per tornar al menú principal")
+
+        except ValueError:
+            print("Entrada invàlida. Per favor, introdueix un número de l'1 al 5 o 'q' per sortir.")

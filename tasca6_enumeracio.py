@@ -1,13 +1,10 @@
 import subprocess, re
 
 # Demana una direcció IP per enumerar i recopilar informació sobre aquesta.
-def enumerar_host():
-
-    # Solicita a l'usuari la direcció IP o el nom de host
-    target = input("Introdueix la direcció IP o el nom de host del sistema: ")
-
+def demanar_ip():
     try:
-        output = enumerar_host_parametre(target)
+        host = input("Introdueix la direcció IP o el nom de host del sistema: ")
+        output = enumerar_host(host)
         
         # Imprimeix la sortida a la consola
         print(output)
@@ -16,18 +13,17 @@ def enumerar_host():
         # En cas d'error, mostra un missatge d'error
         print("Error al ejecutar Enum4linux:", e)
 
-def enumerar_host_parametre(target, color = True):
+def enumerar_host(host, grafic = False):
     # Executa la comanda y captura la sortida a la variable output
-    command = f"enum4linux -a {target}"
+    command = f"enum4linux -a {host}"
 
     output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT, universal_newlines=True, text=True)
 
-    if (not color):
-        # Treiem el color
+    # Treiem el color en cas d'estar a la interfície gràfica
+    if (grafic):
         output = re.sub(r'\x1b\[[0-9;]*[mGK]', '', output)
 
     return output
 
-
 if __name__ == '__main__':
-    enumerar_host()
+    demanar_ip()
