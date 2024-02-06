@@ -28,7 +28,7 @@ def obtenir_informacio_host(ip_address):
         
         for item in host['data']:
             print(f"Port: {item['port']}")
-            print(f"Banner: {item.get('banner', 'N/A')}")
+            # print(f"Banner: {item.get('banner', 'N/A')}")
             if 'product' in item:
                 print(f"Servei: {item['product']}")
             print()

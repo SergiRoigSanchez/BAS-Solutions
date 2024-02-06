@@ -45,7 +45,7 @@ def executar_escaneig(params, target, grafic = False):
         result = subprocess.run(command, capture_output=True, text=True)
 
         if (not grafic):
-            print(result.stdout)
+            return result.stdout
 
         return result
 

@@ -33,7 +33,8 @@ if __name__ == '__main__':
     while True:
         # Mostra les opcions del menú
         mostrar_menu()
-        entrada = input("Tria una opció (1-6) o 'q' per sortir: ")
+        print("Tria una opció (1-6) o 'q' per sortir: ")
+        entrada = input()
         
         # Sortim si l'usuari introdueix 'q'
         if entrada == 'q':
@@ -61,7 +62,8 @@ if __name__ == '__main__':
             print (resultat)
 
             # Enviar per telegram si l'usuari vol
-            telegram = input("Vols enviar el resultat en un missatge al telegram? (s/n): ")
+            print ("Vols enviar el resultat en un missatge al telegram? (s/n): ")
+            telegram = input()
             if (telegram == 's'):
                 tasca_telegram.enviar_missatge(resultat)
                 print ("Missatge enviat correctament.")
