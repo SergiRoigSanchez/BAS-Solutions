@@ -12,6 +12,8 @@ def demanar_adreca():
     # Demanar l'adreça IP
     ip_address = input("Introdueix una adreça IP: ")
 
+    # Es una adreça ip realment? REGEX
+
     return obtenir_informacio_host(ip_address)
 
 def obtenir_informacio_host(ip_address):
