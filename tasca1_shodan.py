@@ -1,4 +1,4 @@
-import shodan, sys, io
+import shodan, sys, io, re
 
 # La nostra API key
 api_key = 'FfS8VG9tA5GoHBVEUcwc9gJcfGqKAi6W'
@@ -6,15 +6,60 @@ api_key = 'FfS8VG9tA5GoHBVEUcwc9gJcfGqKAi6W'
 # Inicialitzar client de Shodan
 api = shodan.Shodan(api_key)
 
+def validar_direccion_ip(ip):
+    regex = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'
+    return re.match(regex, ip) is not None
+
 # Funció que utilitza l'API de Shodan per obtenir informació detallada sobre un host específic, incloent la seva adreça IP, organització, 
 # sistema operatiu, noms de host i els ports i serveis oberts al host, juntament amb banners i detalls del producte si estan disponibles.
 def demanar_adreca():
     # Demanar l'adreça IP
-    ip_address = input("Introdueix una adreça IP: ")
+    
+    while True:
+        ip_address = input("Introdueix una adreça IP: ")
 
-    # Es una adreça ip realment? REGEX
+        # Es una adreça ip realment? REGEX
+        resultat = validar_direccion_ip(ip_address)
+        if resultat == False: 
+            print("ERROR. ETS TONTO")
+        else:
+            break
 
     return obtenir_informacio_host(ip_address)
+
+def demanar_adreca_cli():
+    # Demanar l'adreça IP
+    
+    while True:
+        ip_address = input("Introdueix una adreça IP: ")
+
+        # Es una adreça ip realment? REGEX
+        resultat = validar_direccion_ip(ip_address)
+        if resultat == False: 
+            print("ERROR. ETS TONTO")
+        else:
+            break
+
+    return obtenir_informacio_host_cli(ip_address)
+
+def obtenir_informacio_host_cli(ip_address):
+    try:
+        host = api.host(ip_address)
+        print(f"IP: {host['ip_str']}")
+        print(f"Organització: {host.get('org', 'N/A')}")
+        print(f"Sistema operatiu: {host.get('os', 'N/A')}")
+        print(f"Hostnames: {', '.join(host.get('hostnames', []))}")
+        
+        for item in host['data']:
+            print(f"Port: {item['port']}")
+            # print(f"Banner: {item.get('banner', 'N/A')}")
+            if 'product' in item:
+                print(f"Servei: {item['product']}")
+            print()
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return f"Error: {str(e)}"
 
 def obtenir_informacio_host(ip_address):
     # Redirigir la sortida estándar a un objecte StringIO
@@ -45,8 +90,9 @@ def obtenir_informacio_host(ip_address):
     # Obtenir el contingut capturat y retornar-lo com a String
     output_text = str(output_buffer.getvalue())
     return output_text
+
 if __name__ == '__main__':
-    demanar_adreca()
+    demanar_adreca_cli()
 
 # Funció que utilitza l'API de Shodan per buscar hosts que estiguin executant un servei específic, 
 # recopila informació sobre aquests hosts, com les adreces IP i ports
