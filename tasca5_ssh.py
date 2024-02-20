@@ -1,10 +1,23 @@
-import subprocess
+import subprocess, re
+
+#REGEX per a saber si es una IP
+def validar_direccio_ip(ip):
+    regex = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'
+    return re.match(regex, ip) is not None
 
 # Audita la configuració del servidor SSH que es troba a la IP proporcionada per l'usuari.
 def demanar_ip():
     try:
         # Demanar a l'usuari l'adreça IP o el nom del domini
         host = input("Introdueix l'adreça IP a auditar: ")
+        while True:
+            host = input("Introdueix l'adreça IP a auditar: ")
+            # Es una adreça ip realment? REGEX
+            resultat = validar_direccio_ip(host)
+            if resultat == False: 
+                print("ERROR. ETS TONTO")
+            else:
+                break
 
         result = auditar_ssh(host, False)
 
