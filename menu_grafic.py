@@ -169,11 +169,11 @@ def nmap(params, subtitle):
     def ejecutar_escaneo_nmap():
         try:
             ip_target = entrada_ip.get()
-            resultat = tasca4_escaneig.executar_escaneig(ip_target, params, True)
+            resultat = tasca4_escaneig.executar_escaneig_grafic(ip_target, params)
 
             # Obtenir la sortida del proces i el codi de retorn
-            sortida = resultat.stdout
-            codigo_retorno = resultat.returncode
+            sortida = resultat
+            codigo_retorno = 0
 
             if codigo_retorno == 0:
                 
@@ -252,7 +252,7 @@ def llistar_serveis_versions():
     nmap("-sV", "Llistat de serveis i versions de software d'un host.")
 
 def llistar_vulnerabilitats():
-    nmap("--script vulners", "Identificació de vulnerabilitats d'un host.")
+    nmap("-sV --script vulners", "Identificació de vulnerabilitats d'un host.")
 
 def ssh_audit():
     # Netejar la finestra abans de mostrar la nova interficie
@@ -264,8 +264,8 @@ def ssh_audit():
             resultat = tasca5_ssh.auditar_ssh(ip_target, True)
 
             # Obtenir la sortida del proces i el codi de retorn
-            sortida = resultat.stdout
-            codigo_retorno = resultat.returncode
+            sortida = resultat
+            codigo_retorno = 0
 
             if sortida is not None:
                 codigo_retorno = 0

@@ -23,7 +23,21 @@ def enumerar_host(host, grafic = False):
     if (grafic):
         output = re.sub(r'\x1b\[[0-9;]*[mGK]', '', output)
 
-    return output
+    formatat = formatar_resultat(output)
+
+    return formatat
+
+def formatar_resultat(result):
+    formatat = ""
+    if (len(result) > 0):
+        for linea in result.split('\n'):
+            if "OS information" in linea:
+                break
+            if "Starting" not in linea:
+                linea = linea.replace("=", "").replace(" ( ", "- ").replace(" )", "").replace("[+] ", "")
+                formatat += linea + '\n'
+    
+    return formatat
 
 if __name__ == '__main__':
     demanar_ip()
