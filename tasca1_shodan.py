@@ -6,7 +6,8 @@ api_key = 'FfS8VG9tA5GoHBVEUcwc9gJcfGqKAi6W'
 # Inicialitzar client de Shodan
 api = shodan.Shodan(api_key)
 
-def validar_direccion_ip(ip):
+#REGEX per a saber si es una IP
+def validar_direccio_ip(ip):
     regex = r'\b(?:\d{1,3}\.){3}\d{1,3}\b'
     return re.match(regex, ip) is not None
 
@@ -19,7 +20,7 @@ def demanar_adreca():
         ip_address = input("Introdueix una adreça IP: ")
 
         # Es una adreça ip realment? REGEX
-        resultat = validar_direccion_ip(ip_address)
+        resultat = validar_direccio_ip(ip_address)
         if resultat == False: 
             print("ERROR. ETS TONTO")
         else:
@@ -34,7 +35,7 @@ def demanar_adreca_cli():
         ip_address = input("Introdueix una adreça IP: ")
 
         # Es una adreça ip realment? REGEX
-        resultat = validar_direccion_ip(ip_address)
+        resultat = validar_direccio_ip(ip_address)
         if resultat == False: 
             print("ERROR. ETS TONTO")
         else:
@@ -113,6 +114,13 @@ if __name__ == '__main__':
 #             print(f"IP: {ip_address}, Port: {port}")
 #     except Exception as e:
 #         print(f"Error: {e}")
+    
+#     # Restablir la sortida estándar
+#     sys.stdout = sys.__stdout__
+
+#     # Obtenir el contingut capturat y retornar-lo com a String
+#     output_text = str(output_buffer.getvalue())
+#     return output_text
     
 #     # Restablir la sortida estándar
 #     sys.stdout = sys.__stdout__
